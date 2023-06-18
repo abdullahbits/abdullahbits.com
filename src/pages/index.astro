@@ -3,21 +3,21 @@ import MdiTwitter from "~icons/mdi/twitter";
 import MdiGithub from "~icons/mdi/github";
 import MdiRss from "~icons/mdi/rss";
 
-import PostsList from "../components/PostsList.astro";
 import BaseLayout from "../layouts/BaseLayout.astro";
-import { getCollection } from "astro:content";
-import SeriesList from "../components/SeriesList.astro";
+// import { getCollection } from "astro:content";
+// import PostsList from "../components/PostsList.astro";
+// import SeriesList from "../components/SeriesList.astro";
 
-const posts = await getCollection("blog");
+// const posts = await getCollection("blog");
 
-const sortedPosts = posts
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .filter((post) => !post.data.planned)
-  .slice(0, 3);
+// const sortedPosts = posts
+//   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+//   .filter((post) => !post.data.planned)
+//   .slice(0, 3);
 
-const featuredPosts = posts.filter((post) => post.data.featured);
+// const featuredPosts = posts.filter((post) => post.data.featured);
 
-const featuredSeries = (await getCollection("series")).filter((s) => s.data.featured);
+// const featuredSeries = (await getCollection("series")).filter((s) => s.data.featured);
 ---
 
 <BaseLayout>
@@ -68,7 +68,7 @@ const featuredSeries = (await getCollection("series")).filter((s) => s.data.feat
         </a>
       </div>
     </div>
-    {
+    <!-- {
       featuredPosts.length > 0 && (
         <div class="space-y-5">
           <h1 class="text-3xl text-black dark:text-white">Featured Posts</h1>
@@ -102,6 +102,6 @@ const featuredSeries = (await getCollection("series")).filter((s) => s.data.feat
           <SeriesList series={featuredSeries} />
         </div>
       )
-    }
+    } -->
   </div>
 </BaseLayout>
