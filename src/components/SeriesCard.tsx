@@ -17,10 +17,10 @@ export default function ({ series, posts, order }: Props) {
   };
 
   return (
-    <div class="bg-slate-300 dark:bg-slate-800 rounded-lg">
+    <div class="bg-neutral-300 dark:bg-neutral-800 rounded-lg">
       <button
-        class={`p-5 rounded-lg text-left space-y-2 hover:bg-slate-400 dark:hover:bg-slate-700 ${
-          isOpen ? "border-b-4 border-blue-600 rounded-b-lg bg-slate-400 dark:bg-slate-700" : ""
+        class={`p-5 rounded-lg text-left space-y-2 hover:bg-neutral-400 dark:hover:bg-neutral-700 ${
+          isOpen ? "border-b-4 border-blue-600 rounded-b-lg bg-neutral-400 dark:bg-neutral-700" : ""
         }`}
         onClick={handleOnClick}
       >
@@ -52,7 +52,7 @@ export default function ({ series, posts, order }: Props) {
                     : "before:bg-black dark:before:bg-white"
                   : !post.data.planned
                   ? "before:bg-black dark:before:bg-white"
-                  : "before:bg-slate-500 text-slate-500"
+                  : "before:bg-neutral-500 text-neutral-500"
               }`}
             >
               <a

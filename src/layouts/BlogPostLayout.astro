@@ -66,7 +66,7 @@ const series = (await getCollection("series")).find((s) => s.data.id === seriesI
           tags.map((tag) => (
             <a
               href={`/tags/${tag.slice(1)}`}
-              class="no-underline bg-slate-300 hover:bg-slate-400 dark:bg-slate-700 dark:hover:bg-slate-600 p-1 px-4 rounded-full"
+              class="no-underline bg-neutral-300 hover:bg-neutral-400 dark:bg-neutral-700 dark:hover:bg-neutral-600 p-1 px-4 rounded-full"
             >
               {tag}
             </a>
@@ -91,7 +91,7 @@ const series = (await getCollection("series")).find((s) => s.data.id === seriesI
           <nav class="hidden text-sm space-y-2 mt-9 lg:block lg:w-4/12 h-screen sticky top-20 z-40">
             <span class="font-black dark:text-white text-black uppercase">On This Page</span>
             <TableOfContent headings={headings} />
-            <div class="border-slate-700 border-b-[1px]" />
+            <div class="border-neutral-700 border-b-[1px]" />
             <div class="flex float-right">
               <ScrollToTopButton client:idle />
             </div>
@@ -111,7 +111,7 @@ const series = (await getCollection("series")).find((s) => s.data.id === seriesI
     // Copy button
     const copyButton = document.createElement("button");
     copyButton.className =
-      "p-1 px-2 rounded-md text-slate-300 text-xs bg-slate-800 hover:bg-slate-700";
+      "p-1 px-2 rounded-md text-neutral-300 text-xs bg-neutral-800 hover:bg-neutral-700";
     copyButton.innerHTML = "Copy";
 
     // Header title
@@ -121,7 +121,7 @@ const series = (await getCollection("series")).find((s) => s.data.id === seriesI
     // Header div
     const headerDiv = document.createElement("div");
     headerDiv.className =
-      "flex w-full bg-slate-950 border-b-[0.5px] border-blue-400 rounded-t-lg mt-10 text-base items-center justify-between py-2 px-4";
+      "flex w-full bg-neutral-950 border-b-[0.5px] border-blue-400 rounded-t-lg mt-10 text-base items-center justify-between py-2 px-4";
 
     // Current title
     const titleDiv = codeBlock.querySelector("div[data-rehype-pretty-code-title]");
