@@ -1,7 +1,6 @@
 import type { CollectionEntry } from "astro:content";
+import { ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
-import MaterialSymbolsKeyboardArrowDownRounded from "~icons/material-symbols/keyboard-arrow-down-rounded";
-import MaterialSymbolsKeyboardArrowUpRounded from "~icons/material-symbols/keyboard-arrow-up-rounded";
 
 interface Props {
   series: CollectionEntry<"series">;
@@ -33,9 +32,9 @@ export default function ({ series, posts, order }: Props) {
           </div>
           <div className="text-black dark:text-white">
             {isOpen ? (
-              <MaterialSymbolsKeyboardArrowUpRounded style={{ fontSize: "1.5em" }} />
+              <ChevronUp style={{ fontSize: "1.5em" }} />
             ) : (
-              <MaterialSymbolsKeyboardArrowDownRounded style={{ fontSize: "1.5em" }} />
+              <ChevronDown style={{ fontSize: "1.5em" }} />
             )}
           </div>
         </div>

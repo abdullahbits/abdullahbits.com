@@ -4,7 +4,6 @@ import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkReadingTime from "./src/plugins/remark-reading-time.mjs";
-import Icons from "unplugin-icons/vite";
 import react from "@astrojs/react";
 
 const rehypePrettyCodeOptions = {
@@ -39,14 +38,5 @@ export default defineConfig({
   },
   experimental: {
     assets: true,
-  },
-  vite: {
-    plugins: [
-      Icons({
-        compiler: "jsx",
-        jsx: "react",
-        autoInstall: true,
-      }),
-    ],
   },
 });

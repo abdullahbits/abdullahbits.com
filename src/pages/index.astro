@@ -1,9 +1,8 @@
 ---
-import MdiTwitter from "~icons/mdi/twitter";
-import MdiGithub from "~icons/mdi/github";
-import MdiRss from "~icons/mdi/rss";
+import { buttonVariants } from "@/components/ui/button";
 
 import BaseLayout from "../layouts/BaseLayout.astro";
+import { Github, Rss, Twitter } from "lucide-react";
 // import { getCollection } from "astro:content";
 // import PostsList from "../components/PostsList.astro";
 // import SeriesList from "../components/SeriesList.astro";
@@ -23,46 +22,40 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 <BaseLayout>
   <div class="space-y-10">
     <div class="space-y-4">
-      <h1 class="text-4xl text-black dark:text-white font-black">
-        Hello there! <span class="underline underline-offset-2 decoration-rose-400"
-          >I'm Abdullah</span
-        >
+      <h1 class="text-4xl text-black dark:text-white font-extrabold">
+        Hello there! <span class="underline underline-offset-2 decoration-text">I'm Abdullah</span>
       </h1>
       <p>
-        Welcome to my blog! I'm a software engineer with experience in <span class="font-black"
+        Welcome to my blog! I'm a software engineer with experience in <span class="underline"
           >OCaml</span
-        >, <span class="font-black">JavaScript/Typescript</span>, <span class="font-black"
+        >, <span class="underline">JavaScript/Typescript</span>, <span class="underline"
           >Python</span
-        >, <span class="font-black">ReactJS</span>, and <span class="font-black">Node.js</span>. As
-        an enthusiastic learner, I aim to share my journey of exploration with you. Join me as I
-        write about various aspects of computer science, ranging from <span class="font-black"
+        >, <span class="underline">ReactJS</span>, and <span class="underline">Node.js</span>. As an
+        enthusiastic learner, I aim to share my journey of exploration with you. Join me as I write
+        about various aspects of computer science, ranging from <span class="underline"
           >Programming Languages</span
-        >, <span class="font-black">AI</span>, <span class="font-black">Web Development</span>, to
-        <span class="font-black">Theoretical CS</span>.
+        >, <span class="underline">AI</span>, <span class="underline">Web Development</span>, to
+        <span class="underline">Theoretical CS</span>.
       </p>
       <div class="flex items-center space-x-2">
         <a
           href="https://twitter.com/abdllah_dev"
           target="_blank"
-          class="inline-flex items-center justify-center space-x-2 py-2 px-3 rounded-md bg-neutral-300 hover:bg-neutral-400 dark:bg-neutral-800 dark:hover:bg-neutral-700"
+          class={buttonVariants({ variant: "outline" })}
         >
-          <MdiTwitter />
+          <Twitter className="sm:mr-2 h-4 w-4" />
           <span class="hidden sm:block">Twitter</span>
         </a>
         <a
           href="https://github.com/abdllahdev"
           target="_blank"
-          class="inline-flex items-center justify-center space-x-2 py-2 px-3 rounded-md bg-neutral-300 hover:bg-neutral-400 dark:bg-neutral-800 dark:hover:bg-neutral-700"
+          class={buttonVariants({ variant: "outline" })}
         >
-          <MdiGithub />
+          <Github className="sm:mr-2 h-4 w-4" />
           <span class="hidden sm:block">GitHub</span>
         </a>
-        <a
-          href="/rss.xml"
-          target="_blank"
-          class="inline-flex items-center justify-center space-x-2 py-2 px-3 rounded-md bg-neutral-300 hover:bg-neutral-400 dark:bg-neutral-800 dark:hover:bg-neutral-700"
-        >
-          <MdiRss />
+        <a href="/rss.xml" target="_blank" class={buttonVariants({ variant: "outline" })}>
+          <Rss className="sm:mr-2 h-4 w-4" />
           <span class="hidden sm:block">RSS</span>
         </a>
       </div>

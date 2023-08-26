@@ -3,9 +3,9 @@ import { SITE_NAME } from "../consts";
 import ToggleTheme from "./ToggleTheme";
 ---
 
-<div
-  class="container mx-auto md:max-w-4xl p-4 fixed top-0 left-0 right-0 z-50 flex justify-between items-center bg-neutral-100 dark:bg-neutral-900"
->
-  <a class="text-3xl text-rose-400 font-righteous font-black" href="/">{SITE_NAME}</a>
-  <ToggleTheme client:idle />
+<div class="border-b border-border py-3 fixed top-0 left-0 right-0 z-50 bg-background">
+  <div class="container px-4 mx-auto flex justify-between items-center md:max-w-4xl">
+    <a class="text-lg font-extrabold hover:underline underline-offset-2" href="/">{SITE_NAME}</a>
+    <ToggleTheme client:idle />
+  </div>
 </div>
