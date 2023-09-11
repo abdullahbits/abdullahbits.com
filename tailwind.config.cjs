@@ -1,6 +1,4 @@
 /** @type {import('tailwindcss').Config} */
-const defaultTheme = require("tailwindcss/defaultTheme");
-
 module.exports = {
   darkMode: ["class"],
   content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
@@ -13,14 +11,6 @@ module.exports = {
       },
     },
     extend: {
-      fontFamily: {
-        sans: ["Helvetica Neue", ...defaultTheme.fontFamily.sans],
-        righteous: [
-          "Righteous",
-          "Helvetica Neue",
-          ...defaultTheme.fontFamily.sans,
-        ],
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

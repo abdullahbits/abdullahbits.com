@@ -1,8 +1,12 @@
 ---
 import { buttonVariants } from "@/components/ui/button";
 
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import { Github, Rss, Twitter } from "lucide-react";
+import { GITHUB_HANDLE, TWITTER_HANDLE } from "@/consts";
+import Projects from "@/components/projects.astro";
+import { getCollection } from "astro:content";
+
 // import { getCollection } from "astro:content";
 // import PostsList from "../components/PostsList.astro";
 // import SeriesList from "../components/SeriesList.astro";
@@ -17,6 +21,9 @@ import { Github, Rss, Twitter } from "lucide-react";
 // const featuredPosts = posts.filter((post) => post.data.featured);
 
 // const featuredSeries = (await getCollection("series")).filter((s) => s.data.featured);
+
+const projects = await getCollection("project");
+const sortedProjects = projects.sort((a, b) => a.data.index - b.data.index)
 ---
 
 <BaseLayout>
@@ -39,7 +46,7 @@ import { Github, Rss, Twitter } from "lucide-react";
       </p>
       <div class="flex items-center space-x-2">
         <a
-          href="https://twitter.com/abdllah_dev"
+          href=`https://twitter.com/${TWITTER_HANDLE}`
           target="_blank"
           class={buttonVariants({ variant: "outline" })}
         >
@@ -47,7 +54,7 @@ import { Github, Rss, Twitter } from "lucide-react";
           <span class="hidden sm:block">Twitter</span>
         </a>
         <a
-          href="https://github.com/abdllahdev"
+          href=`https://github.com/${GITHUB_HANDLE}`
           target="_blank"
           class={buttonVariants({ variant: "outline" })}
         >
@@ -56,9 +63,14 @@ import { Github, Rss, Twitter } from "lucide-react";
         </a>
         <a href="/rss.xml" target="_blank" class={buttonVariants({ variant: "outline" })}>
           <Rss className="h-4 w-4 sm:mr-2" />
-          <span class="hidden sm:block">RSS</span>
+          <span class='hidden sm:block'>RSS</span>
         </a>
       </div>
+    </div>
+    <Projects projects={sortedProjects} />
+    <div class="flex flex-col gap-4">
+      <h3 class="font-medium text-2xl">Too many posts coming soon</h3>
+      <p>I've been trying to start writing but I can't find cool ideas but I will start writing about some cool stuff soon.</p>
     </div>
     <!-- {
       featuredPosts.length > 0 && (

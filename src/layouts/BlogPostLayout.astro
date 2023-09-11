@@ -1,12 +1,12 @@
 ---
 import { CollectionEntry, getCollection } from "astro:content";
-import FormattedDate from "../components/FormattedDate.astro";
-import BaseLayout from "./BaseLayout.astro";
-import TableOfContent from "../components/TableOfContent.astro";
-import ScrollToTopButton from "../components/ScrollToTopButton";
+import FormattedDate from "@/components/FormattedDate.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import TableOfContent from "@/components/TableOfContent.astro";
+import ScrollToTopButton from "@/components/ScrollToTopButton";
 import { Image } from "astro:assets";
-import SeriesList from "../components/SeriesList.astro";
-import SeriesCard from "../components/SeriesCard.astro";
+import SeriesList from "@/components/SeriesList.astro";
+import SeriesCard from "@/components/SeriesCard.astro";
 
 type Blog = CollectionEntry<"blog">["data"];
 

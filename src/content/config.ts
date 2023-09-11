@@ -48,4 +48,15 @@ const series = defineCollection({
   }),
 });
 
-export const collections = { blog, series };
+const project = defineCollection({
+  schema: z.object({
+    id: z.string(),
+    title: z.string(),
+    link: z.string().optional(),
+    description: z.string(),
+    tags: z.string().array(),
+    index: z.number(),
+  }),
+});
+
+export const collections = { blog, series, project };
