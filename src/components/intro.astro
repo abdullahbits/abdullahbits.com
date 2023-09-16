@@ -25,7 +25,7 @@ import { GITHUB_HANDLE, TWITTER_HANDLE } from "@/consts";
       class={buttonVariants({ variant: "outline" })}
     >
       <Twitter className="h-4 w-4 sm:mr-2" />
-      <span class="hidden sm:block">Twitter</span>
+      <span class="sr-only sm:not-sr-only">Twitter</span>
     </a>
     <a
       href=`https://github.com/${GITHUB_HANDLE}`
@@ -33,11 +33,11 @@ import { GITHUB_HANDLE, TWITTER_HANDLE } from "@/consts";
       class={buttonVariants({ variant: "outline" })}
     >
       <Github className="h-4 w-4 sm:mr-2" />
-      <span class="hidden sm:block">GitHub</span>
+      <span class="sr-only sm:not-sr-only">GitHub</span>
     </a>
     <a href="/rss.xml" target="_blank" class={buttonVariants({ variant: "outline" })}>
       <Rss className="h-4 w-4 sm:mr-2" />
-      <span class='hidden sm:block'>RSS</span>
+      <span class='sr-only sm:not-sr-only'>RSS</span>
     </a>
   </div>
 </div>
