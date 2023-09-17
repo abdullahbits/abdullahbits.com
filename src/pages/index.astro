@@ -14,33 +14,42 @@ const sortedPosts = posts
   .filter((post) => !post.data.planned && post.data.published)
   .slice(0, 3);
 
-const featuredPosts = posts.filter((post) => post.data.featured && post.data.published);
+const featuredPosts = posts.filter(
+  (post) => post.data.featured && post.data.published
+);
 
-const featuredSeries = (await getCollection("series")).filter((s) => s.data.featured && s.data.published);
+const featuredSeries = (await getCollection("series")).filter(
+  (s) => s.data.featured && s.data.published
+);
 
 const projects = await getCollection("project");
-const sortedProjects = projects.sort((a, b) => a.data.index - b.data.index)
+const sortedProjects = projects.sort((a, b) => a.data.index - b.data.index);
 ---
 
 <BaseLayout>
   <div class="space-y-10">
-    <Intro />    
+    <Intro />
     <Projects projects={sortedProjects} />
-    
+
     <div class="space-y-4">
-      <h3 class="font-medium text-2xl">Too many posts coming soon!</h3>
-      <p>I've been trying to start writing but I can't find cool ideas but I will start writing about some cool stuff soon.</p>
+      <h3 class="text-2xl font-medium">Too many posts coming soon!</h3>
+      <p>
+        I've been trying to start writing but I can't find cool ideas but I will
+        start writing about some cool stuff soon.
+      </p>
     </div>
 
     {
       featuredPosts.length > 0 && (
         <div class="space-y-4">
-          <div class="flex justify-between items-end">
-            <h2 class="font-medium text-2xl">Featured Posts</h2>
+          <div class="flex items-end justify-between">
+            <h2 class="text-2xl font-medium">Featured Posts</h2>
             <a
               href="/blog"
-              class="text-sm font-medium hover:underline underline-offset-2"
-            >View all</a>
+              class="text-sm font-medium underline-offset-2 hover:underline"
+            >
+              View all
+            </a>
           </div>
           <Posts posts={featuredPosts} />
         </div>
@@ -50,12 +59,14 @@ const sortedProjects = projects.sort((a, b) => a.data.index - b.data.index)
     {
       sortedPosts.length > 0 && (
         <div class="space-y-4">
-          <div class="flex justify-between items-end">
-            <h2 class="font-medium text-2xl">Latest Posts</h2>
+          <div class="flex items-end justify-between">
+            <h2 class="text-2xl font-medium">Latest Posts</h2>
             <a
               href="/blog"
-              class="text-sm font-medium hover:underline underline-offset-2"
-            >View all</a>
+              class="text-sm font-medium underline-offset-2 hover:underline"
+            >
+              View all
+            </a>
           </div>
           <Posts posts={sortedPosts} />
         </div>
@@ -65,12 +76,14 @@ const sortedProjects = projects.sort((a, b) => a.data.index - b.data.index)
     {
       featuredSeries.length > 0 && (
         <div class="space-y-5">
-          <div class="flex justify-between items-end">
-            <h2 class="font-medium text-2xl">Featured Series</h2>
+          <div class="flex items-end justify-between">
+            <h2 class="text-2xl font-medium">Featured Series</h2>
             <a
               href="/series"
-              class="text-sm font-medium hover:underline underline-offset-2"
-            >View all</a>
+              class="text-sm font-medium underline-offset-2 hover:underline"
+            >
+              View all
+            </a>
           </div>
           <SeriesList series={featuredSeries} />
         </div>

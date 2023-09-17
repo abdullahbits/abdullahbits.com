@@ -57,7 +57,7 @@ The blockquote element represents content that is quoted from another source, op
 ## Code Blocks
 
 ```html {3, 6}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -70,7 +70,7 @@ The blockquote element represents content that is quoted from another source, op
 ```
 
 ```html title="example.html" {1-3, 6}
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />

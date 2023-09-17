@@ -37,21 +37,24 @@ const toc = buildToc(headings);
 
 <div class="not-prose">
   <ul class="list-outside list-disc">
-    {toc.map((heading) => (
-      <li class="ml-4">
-        <a class="text-black dark:text-white hover:underline underline-offset-2" href={"#" + heading.slug}>
-          {heading.text}
-        </a>
-        {
-          heading.subheadings.length > 0 && (
+    {
+      toc.map((heading) => (
+        <li class="ml-4">
+          <a
+            class="text-black underline-offset-2 hover:underline dark:text-white"
+            href={"#" + heading.slug}
+          >
+            {heading.text}
+          </a>
+          {heading.subheadings.length > 0 && (
             <ul class="list-outside list-disc">
               {heading.subheadings.map((subheading) => (
                 <Astro.self heading={subheading} />
               ))}
             </ul>
-          )
-        }
-      </li>
-    ))}
+          )}
+        </li>
+      ))
+    }
   </ul>
 </div>

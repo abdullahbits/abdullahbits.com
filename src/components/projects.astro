@@ -1,5 +1,5 @@
 ---
-import { ExternalLink } from "lucide-react"
+import { ExternalLink } from "lucide-react";
 import type { CollectionEntry } from "astro:content";
 import { buttonVariants } from "./ui/button";
 import { cn } from "@/lib/cn";
@@ -12,28 +12,40 @@ const { projects } = Astro.props;
 ---
 
 <section class="space-y-4">
-  <h2 class="font-medium text-2xl">Projects</h2>
-  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-    {projects.map((project) => (
-      <div class="flex flex-col justify-between p-6 gap-y-2 rounded-lg border bg-card text-card-foreground shadow-sm">
-        <div class="flex flex-col gap-y-2">
-          <div class="flex justify-between items-center">
-            <h3 class="text-xl font-semibold leading-none tracking-tight">
-              {project.data.title}
-            </h3>
-            {
-              project.data.link && (
-              <a href={project.data.link} target="_blank" class={cn(buttonVariants({ variant: "ghost" }), "p-1 h-7 w-7")}>
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>)
-            }
+  <h2 class="text-2xl font-medium">Projects</h2>
+  <div class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
+    {
+      projects.map((project) => (
+        <div class="flex flex-col justify-between gap-y-2 rounded-lg border bg-card p-6 text-card-foreground shadow-sm">
+          <div class="flex flex-col gap-y-2">
+            <div class="flex items-center justify-between">
+              <h3 class="text-xl font-semibold leading-none tracking-tight">
+                {project.data.title}
+              </h3>
+              {project.data.link && (
+                <a
+                  href={project.data.link}
+                  target="_blank"
+                  class={cn(
+                    buttonVariants({ variant: "ghost" }),
+                    "h-7 w-7 p-1"
+                  )}
+                >
+                  <ExternalLink className="h-3.5 w-3.5" />
+                </a>
+              )}
+            </div>
+            <p class="text-sm text-muted-foreground">
+              {project.data.description}
+            </p>
           </div>
-          <p class="text-sm text-muted-foreground">{project.data.description}</p>
+          <ul class="flex flex-wrap gap-x-2 text-sm text-muted-foreground">
+            {project.data.tags.map((tag) => (
+              <li class="underline underline-offset-2">{`#${tag}`}</li>
+            ))}
+          </ul>
         </div>
-        <ul class="text-sm flex flex-wrap text-muted-foreground gap-x-2">
-          {project.data.tags.map((tag) => (<li class="underline underline-offset-2">{`#${tag}`}</li>))}
-        </ul>
-      </div>
-    ))}
+      ))
+    }
   </div>
 </section>

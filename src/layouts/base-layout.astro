@@ -30,7 +30,10 @@ const { title, description, postMeta } = Astro.props;
 
     <script is:inline>
       const theme = (() => {
-        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+        if (
+          typeof localStorage !== "undefined" &&
+          localStorage.getItem("theme")
+        ) {
           return localStorage.getItem("theme");
         }
 

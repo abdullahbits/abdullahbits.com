@@ -4,7 +4,9 @@ import BaseLayout from "@/layouts/base-layout.astro";
 import Posts from "@/components/posts.astro";
 
 export async function getStaticPaths() {
-  const posts = (await getCollection("blog")).filter((post) => post.data.published);
+  const posts = (await getCollection("blog")).filter(
+    (post) => post.data.published
+  );
   const tags = [...new Set(posts.map((post) => post.data.tags).flat())];
   return tags.map((tag) => ({
     params: { tag: tag.slice(1) },

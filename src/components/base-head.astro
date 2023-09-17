@@ -1,5 +1,10 @@
 ---
-import { SITE_AUTHOR, SITE_DESCRIPTION, SITE_NAME, SITE_TITLE } from "../consts";
+import {
+  SITE_AUTHOR,
+  SITE_DESCRIPTION,
+  SITE_NAME,
+  SITE_TITLE,
+} from "../consts";
 
 export interface Props {
   title?: string;
@@ -42,7 +47,9 @@ function getOgImage({
     `w_1920,h_933,q_100`,
 
     // TITLE
-    `l_text:Roboto_72_bold:${encode(title && title !== "404: Not found" ? title : SITE_TITLE)},co_rgb:f8fafc,c_fit,w_1400,h_240`,
+    `l_text:Roboto_72_bold:${encode(
+      title && title !== "404: Not found" ? title : SITE_TITLE
+    )},co_rgb:f8fafc,c_fit,w_1400,h_240`,
     // Positioning
     `fl_layer_apply,g_south_west,x_150,y_${postMeta ? "170" : "230"}`,
 
@@ -52,10 +59,10 @@ function getOgImage({
     `c_thumb,r_max,w_380,h_380,q_100`,
     // Positioning
     `fl_layer_apply,w_180,g_north_west,x_150,y_100`,
-  ]
+  ];
 
   if (postMeta) {
-    const meta = ["abdllah.dev"]
+    const meta = ["abdllah.dev"];
 
     meta.push(
       postMeta.pubDate.toLocaleDateString("en-gb", {
@@ -67,25 +74,33 @@ function getOgImage({
 
     meta.push(...postMeta.tags);
 
-    return url.concat([
-      // META
-      `l_text:Roboto_48:${encode(meta.join(" • ").toUpperCase())},co_rgb:94a3b8,c_fit,w_1400`,
-      // Positioning
-      `fl_layer_apply,g_south_west,x_150,y_100`,
+    return url
+      .concat([
+        // META
+        `l_text:Roboto_48:${encode(
+          meta.join(" • ").toUpperCase()
+        )},co_rgb:94a3b8,c_fit,w_1400`,
+        // Positioning
+        `fl_layer_apply,g_south_west,x_150,y_100`,
 
-      // BG Image
-      `og-image.png`
-    ]).join("/")
+        // BG Image
+        `og-image.png`,
+      ])
+      .join("/");
   } else {
-    return url.concat([
-      // META
-      `l_text:Roboto_48:${encode(SITE_DESCRIPTION)},co_rgb:94a3b8,c_fit,w_1400`,
-      // Positioning
-      `fl_layer_apply,g_south_west,x_150,y_100`,
+    return url
+      .concat([
+        // META
+        `l_text:Roboto_48:${encode(
+          SITE_DESCRIPTION
+        )},co_rgb:94a3b8,c_fit,w_1400`,
+        // Positioning
+        `fl_layer_apply,g_south_west,x_150,y_100`,
 
-      // BG Image
-      `og-image.png`
-    ]).join("/")
+        // BG Image
+        `og-image.png`,
+      ])
+      .join("/");
   }
 }
 ---
@@ -107,7 +122,7 @@ function getOgImage({
 <title>{getTitle(title)}</title>
 <meta name="title" content={getTitle(title)} />
 <meta name="description" content={getDescription(description)} />
-<meta name="author" content={SITE_AUTHOR}>
+<meta name="author" content={SITE_AUTHOR} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />

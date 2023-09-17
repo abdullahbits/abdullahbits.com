@@ -33,12 +33,18 @@ const {
   orderInSeries,
 } = Astro.props;
 
-const series = (await getCollection("series")).find((s) => s.data.id === seriesId);
+const series = (await getCollection("series")).find(
+  (s) => s.data.id === seriesId
+);
 ---
 
-<BaseLayout title={title} description={description} postMeta={{ pubDate, tags }}>
+<BaseLayout
+  title={title}
+  description={description}
+  postMeta={{ pubDate, tags }}
+>
   <div
-    class="prose prose-slate prose-headings:scroll-my-20 prose-a:underline-offset-2 prose-a:decoration-blue-600 prose-img:rounded-md dark:prose-invert max-w-none"
+    class="prose prose-slate max-w-none dark:prose-invert prose-headings:scroll-my-20 prose-a:decoration-blue-600 prose-a:underline-offset-2 prose-img:rounded-md"
   >
     <h1>{title}</h1>
     <div class="space-y-2 text-xs font-semibold uppercase">
@@ -64,7 +70,7 @@ const series = (await getCollection("series")).find((s) => s.data.id === seriesI
           tags.map((tag) => (
             <a
               href={`/tags/${tag.slice(1)}`}
-              class="rounded-sm p-1 px-2 no-underline bg-card border-border border hover:bg-muted"
+              class="rounded-sm border border-border bg-card p-1 px-2 no-underline hover:bg-muted"
             >
               {tag}
             </a>
@@ -73,7 +79,11 @@ const series = (await getCollection("series")).find((s) => s.data.id === seriesI
       </div>
     </div>
     <div class="not-prose">
-      {cover && coverAlt && <Image class="my-10 mb-1 rounded-md" src={cover} alt={coverAlt} />}
+      {
+        cover && coverAlt && (
+          <Image class="my-10 mb-1 rounded-md" src={cover} alt={coverAlt} />
+        )
+      }
     </div>
     <div class="space-x-10 md:flex">
       <div class="w-full">
@@ -87,7 +97,9 @@ const series = (await getCollection("series")).find((s) => s.data.id === seriesI
       {
         headings.length > 0 && (
           <nav class="sticky top-20 z-40 mt-9 hidden h-screen space-y-2 text-sm lg:block lg:w-4/12">
-            <span class="font-black uppercase text-black dark:text-white">On This Page</span>
+            <span class="font-black uppercase text-black dark:text-white">
+              On This Page
+            </span>
             <TableOfContent headings={headings} />
             <div class="border-b-[1px] border-neutral-700" />
           </nav>
@@ -98,7 +110,9 @@ const series = (await getCollection("series")).find((s) => s.data.id === seriesI
 </BaseLayout>
 
 <script>
-  const codeBlocks = Array.from(document.querySelectorAll("div[data-rehype-pretty-code-fragment]"));
+  const codeBlocks = Array.from(
+    document.querySelectorAll("div[data-rehype-pretty-code-fragment]")
+  );
 
   for (let codeBlock of codeBlocks) {
     const codeBlockPre = codeBlock.getElementsByTagName("pre")[0];
@@ -119,7 +133,9 @@ const series = (await getCollection("series")).find((s) => s.data.id === seriesI
       "flex w-full bg-zinc-950 border border-zinc-800 rounded-t-md mt-10 text-base items-center justify-between py-2 px-4";
 
     // Current title
-    const titleDiv = codeBlock.querySelector("div[data-rehype-pretty-code-title]");
+    const titleDiv = codeBlock.querySelector(
+      "div[data-rehype-pretty-code-title]"
+    );
 
     // Set title to the language name if no current title is set
     if (titleDiv) {
@@ -127,7 +143,9 @@ const series = (await getCollection("series")).find((s) => s.data.id === seriesI
       titleSpan.innerHTML = title;
       codeBlock.removeChild(titleDiv);
     } else {
-      titleSpan.innerHTML = codeBlockPre.getAttribute("data-language") as string;
+      titleSpan.innerHTML = codeBlockPre.getAttribute(
+        "data-language"
+      ) as string;
     }
 
     headerDiv.appendChild(titleSpan);

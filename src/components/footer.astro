@@ -5,8 +5,10 @@ import { buttonVariants } from "./ui/button";
 const today = new Date();
 ---
 
-<div class="border-border bg-background border-t py-3">
-  <footer class="container mx-auto flex items-center justify-between px-4 md:max-w-4xl">
+<div class="border-t border-border bg-background py-3">
+  <footer
+    class="container mx-auto flex items-center justify-between px-4 md:max-w-4xl"
+  >
     <p class="text-sm">&copy; {today.getFullYear()} Abdullah Elsayed</p>
     <div class="flex items-center">
       <a
@@ -25,7 +27,11 @@ const today = new Date();
         <Github className="h-3.5 w-3.5" />
         <span class="sr-only">Github</span>
       </a>
-      <a href="/rss.xml" target="_blank" class={buttonVariants({ variant: "ghost", size: "sm" })}>
+      <a
+        href="/rss.xml"
+        target="_blank"
+        class={buttonVariants({ variant: "ghost", size: "sm" })}
+      >
         <Rss className="h-3.5 w-3.5" />
         <span class="sr-only">RSS</span>
       </a>

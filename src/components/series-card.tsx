@@ -53,7 +53,7 @@ export default function ({ series, posts, order }: Props) {
                   "before:bg-blue-600 before:ring-[2.5px] before:ring-blue-600/40":
                     order === index + 1,
                   "before:bg-muted-foreground": post.data.planned,
-                },
+                }
               )}
             >
               <a
