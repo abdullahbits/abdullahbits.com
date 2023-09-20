@@ -1,6 +1,8 @@
 ---
 title: "Second post"
 description: "Lorem ipsum dolor sit amet"
+cover: "@/assets/post-covers/cover.png"
+coverAlt: "Hero Image"
 seriesId: first-series
 index: 2
 pubDate: "22 Jul 2022"

@@ -1,11 +1,5 @@
----
-import { Github, Rss, Twitter } from "lucide-react";
-import { buttonVariants } from "./ui/button";
-import { GITHUB_HANDLE, TWITTER_HANDLE } from "@/consts";
----
-
-<div class="space-y-4">
-  <h1 class="text-3xl font-extrabold text-black dark:text-white sm:text-4xl">
+<div class="space-y-2">
+  <h1 class="text-lg font-bold sm:text-2xl">
     Hello there! <span class="decoration-text underline underline-offset-2"
       >I'm Abdullah</span
     >
@@ -24,30 +18,4 @@ import { GITHUB_HANDLE, TWITTER_HANDLE } from "@/consts";
       >Theoretical CS</span
     >.
   </p>
-  <div class="flex items-center space-x-2">
-    <a
-      href=`https://twitter.com/${TWITTER_HANDLE}`
-      target="_blank"
-      class={buttonVariants({ variant: "outline" })}
-    >
-      <Twitter className="h-4 w-4 sm:mr-2" />
-      <span class="sr-only sm:not-sr-only">Twitter</span>
-    </a>
-    <a
-      href=`https://github.com/${GITHUB_HANDLE}`
-      target="_blank"
-      class={buttonVariants({ variant: "outline" })}
-    >
-      <Github className="h-4 w-4 sm:mr-2" />
-      <span class="sr-only sm:not-sr-only">GitHub</span>
-    </a>
-    <a
-      href="/rss.xml"
-      target="_blank"
-      class={buttonVariants({ variant: "outline" })}
-    >
-      <Rss className="h-4 w-4 sm:mr-2" />
-      <span class="sr-only sm:not-sr-only">RSS</span>
-    </a>
-  </div>
 </div>

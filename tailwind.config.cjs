@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ["class"],
   future: {
     hoverOnlyWhenSupported: true,
   },
@@ -68,6 +67,30 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": "hsl(var(--foreground))",
+            "--tw-prose-headings": "hsl(var(--foreground))",
+            "--tw-prose-lead": "hsl(var(--muted-foreground))",
+            "--tw-prose-links": theme("colors.blue[500]"),
+            "--tw-prose-bold": theme("colors.white"),
+            "--tw-prose-counters": "hsl(var(--muted-foreground))",
+            "--tw-prose-bullets": "hsl(var(--muted-foreground))",
+            "--tw-prose-hr": "hsl(var(--muted))",
+            "--tw-prose-quotes": theme("colors.white"),
+            "--tw-prose-quote-borders": theme("colors.blue[600]"),
+            "--tw-prose-captions": "hsl(var(--muted-foreground))",
+            "--tw-prose-code": "hsl(var(--foreground))",
+            "--tw-prose-pre-code": "hsl(var(--muted-foreground))",
+            "--tw-prose-pre-bg": "hsl(var(--background))",
+            "--tw-prose-th-borders": "hsl(var(--muted))",
+            "--tw-prose-td-borders": "hsl(var(--muted))",
+            "--tw-prose-kbd": "hsl(var(--foreground))",
+            "--tw-prose-kbd-shadows": theme("hexToRgb(colors.white)"),
+          },
+        },
+      }),
     },
   },
   plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],

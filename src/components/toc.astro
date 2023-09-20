@@ -35,13 +35,13 @@ const { headings } = Astro.props;
 const toc = buildToc(headings);
 ---
 
-<div class="not-prose">
+<div class="not-prose text-foreground marker:text-muted-foreground">
   <ul class="list-outside list-disc">
     {
       toc.map((heading) => (
         <li class="ml-4">
           <a
-            class="text-black underline-offset-2 hover:underline dark:text-white"
+            class="underline-offset-2 hover:underline"
             href={"#" + heading.slug}
           >
             {heading.text}

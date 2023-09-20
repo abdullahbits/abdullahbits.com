@@ -1,6 +1,8 @@
 ---
 title: "First post"
 description: "Lorem ipsum dolor sit amet"
+cover: "@/assets/post-covers/cover.png"
+coverAlt: "Hero Image"
 featured: true
 seriesId: first-series
 index: 1

@@ -1,11 +1,11 @@
 ---
-title: "Markdown Style Guide Markdown Style Guide Markdown Style Guide Markdown Style Guide Markdown Style Guide"
-description: "Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro. Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro. Here is a sample of some basic Markdown syntax that can be used when writing Markdown content in Astro."
+title: "Markdown Style Guide"
+description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel hendrerit lorem, eu vehicula urna. Nullam eu tincidunt est. Duis rhoncus libero vel lacus pharetra, non venenatis tellus tincidunt."
 featured: true
 seriesId: first-series
 index: 5
 pubDate: "Jul 01 2022"
-cover: "~/assets/placeholder-hero.png"
+cover: "@/assets/post-covers/cover.png"
 coverAlt: "Hero Image"
 tags:
   - markdown
@@ -30,7 +30,7 @@ Xerum, quo qui aut unt expliquam qui dolut labo. Aque venitatiusda cum, voluptio
 
 ## Images
 
-![This is a placeholder image description](~/assets/placeholder-social.png)
+![This is a placeholder image description](@/assets/post-covers/cover.png)
 
 ## Blockquotes
 

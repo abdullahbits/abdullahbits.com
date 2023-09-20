@@ -9,14 +9,27 @@ export interface Props {
 const { posts } = Astro.props;
 ---
 
-<section class="flex flex-col gap-2">
+<section class="grid grid-cols-1 gap-2 md:grid-cols-2 lg:grid-cols-3">
   {
     posts.map((post) => (
       <a
         href={!post.data.planned ? `/blog/${post.slug}` : null}
-        class={`min-h-full justify-between space-y-2 rounded-lg border border-border bg-card p-6 text-card-foreground shadow-sm hover:bg-muted`}
+        class="relative isolate flex h-64 flex-col rounded-lg border text-card-foreground shadow-sm hover:bg-muted"
       >
-        <div class="space-y-1">
+        <img
+          src={post.data.cover?.src}
+          alt={post.data.coverAlt}
+          class="absolute inset-0 h-full w-full rounded-lg object-cover"
+        />
+        <div
+          class="z-10 flex h-full flex-col justify-end space-y-2 rounded-lg bg-gradient-to-t from-background
+                  via-background/80
+                  to-background/20
+                  p-4
+                  hover:from-background/40
+                  hover:via-background/40
+                  hover:to-background/40"
+        >
           <h3 class="text-xl font-semibold leading-none tracking-tight">
             {post.data.title}
           </h3>
@@ -27,7 +40,6 @@ const { posts } = Astro.props;
             ))}
           </div>
         </div>
-        <p class="text-sm text-muted-foreground">{post.data.description}</p>
       </a>
     ))
   }

@@ -17,7 +17,7 @@ export function SeriesAccordion({ series, posts, current }: Props) {
   };
 
   return (
-    <div className="rounded-lg border border-border bg-card">
+    <div className="rounded-lg border bg-card">
       <button
         className={cn("space-y-2 rounded-lg p-6 text-left hover:bg-muted", {
           "rounded-b-lg border-b-4 border-blue-600 bg-muted": isOpen,

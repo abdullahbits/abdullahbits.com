@@ -17,40 +17,15 @@ const { title, description, postMeta } = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="dark font-sans">
+<html lang="en">
   <head>
     <BaseHead title={title} description={description} postMeta={postMeta} />
   </head>
   <body class="relative flex h-screen flex-col justify-between space-y-10">
     <Header />
-    <main class="container mx-auto grow px-4 pt-16 md:max-w-4xl">
+    <main class="container mx-auto grow px-4 pt-16 md:max-w-5xl">
       <slot />
     </main>
     <Footer />
-
-    <script is:inline>
-      const theme = (() => {
-        if (
-          typeof localStorage !== "undefined" &&
-          localStorage.getItem("theme")
-        ) {
-          return localStorage.getItem("theme");
-        }
-
-        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-          return "dark";
-        }
-
-        return "light";
-      })();
-
-      if (theme === "light") {
-        document.documentElement.classList.remove("dark");
-      } else {
-        document.documentElement.classList.add("dark");
-      }
-
-      window.localStorage.setItem("theme", theme);
-    </script>
   </body>
 </html>
