@@ -107,11 +107,9 @@ const posts = (await getCollection("blog"))
       {
         headings.length > 0 && (
           <nav class="sticky top-20 z-40 mt-9 hidden h-screen space-y-2 text-sm lg:block lg:w-4/12">
-            <span class="font-black uppercase text-black dark:text-white">
-              On This Page
-            </span>
+            <span class="font-black uppercase">On This Page</span>
             <TableOfContent headings={headings} />
-            <div class="border-b-[1px] border-neutral-700" />
+            <div class="border-b-[1px]" />
           </nav>
         )
       }

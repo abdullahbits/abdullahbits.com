@@ -1,13 +1,11 @@
 ---
 title: "Markdown Style Guide"
 description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel hendrerit lorem, eu vehicula urna. Nullam eu tincidunt est. Duis rhoncus libero vel lacus pharetra, non venenatis tellus tincidunt."
-featured: true
 seriesId: first-series
 index: 5
 pubDate: "Jul 01 2022"
 cover: "@/assets/post-covers/cover.png"
 coverAlt: "Hero Image"
-published: true
 tags:
   - markdown
   - guide

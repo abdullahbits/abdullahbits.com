@@ -14,12 +14,12 @@ const sortedPosts = posts
   .filter((post) => !post.data.planned && post.data.published)
   .slice(0, 3);
 
-const featuredPosts = posts.filter(
-  (post) => post.data.featured && post.data.published
+const pinnedPosts = posts.filter(
+  (post) => post.data.pinned && post.data.published
 );
 
-const featuredSeries = (await getCollection("series")).filter(
-  (s) => s.data.featured && s.data.published
+const pinnedSeries = (await getCollection("series")).filter(
+  (s) => s.data.pinned && s.data.published
 );
 
 const projects = await getCollection("project");
@@ -40,10 +40,10 @@ const sortedProjects = projects.sort((a, b) => a.data.index - b.data.index);
     </div>
 
     {
-      featuredPosts.length > 0 && (
+      pinnedPosts.length > 0 && (
         <div class="space-y-4">
           <div class="flex items-end justify-between">
-            <h2 class="text-2xl font-bold">Featured Posts</h2>
+            <h2 class="text-2xl font-bold">Pinned Posts</h2>
             <a
               href="/blog"
               class="text-sm font-medium underline-offset-2 hover:underline"
@@ -51,7 +51,7 @@ const sortedProjects = projects.sort((a, b) => a.data.index - b.data.index);
               View all
             </a>
           </div>
-          <Posts posts={featuredPosts} />
+          <Posts posts={pinnedPosts} />
         </div>
       )
     }
@@ -74,10 +74,10 @@ const sortedProjects = projects.sort((a, b) => a.data.index - b.data.index);
     }
 
     {
-      featuredSeries.length > 0 && (
+      pinnedSeries.length > 0 && (
         <div class="space-y-5">
           <div class="flex items-end justify-between">
-            <h2 class="text-2xl font-bold">Featured Series</h2>
+            <h2 class="text-2xl font-bold">Pinned Series</h2>
             <a
               href="/series"
               class="text-sm font-medium underline-offset-2 hover:underline"
@@ -85,7 +85,7 @@ const sortedProjects = projects.sort((a, b) => a.data.index - b.data.index);
               View all
             </a>
           </div>
-          <SeriesList seriesList={featuredSeries} />
+          <SeriesList seriesList={pinnedSeries} />
         </div>
       )
     }
