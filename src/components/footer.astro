@@ -1,6 +1,6 @@
 ---
-import { Github, Network, Rss } from "lucide-react";
-import { buttonVariants } from "@/components/ui/button";
+import { Github, Network, Rss } from "lucide-preact";
+import { buttonVariants } from "@/lib/button-utils";
 
 const today = new Date();
 ---
@@ -32,7 +32,7 @@ const today = new Date();
         target="_blank"
         class={buttonVariants({ variant: "ghost", size: "icon" })}
       >
-        <Github className="h-3.5 w-3.5" />
+        <Github class="h-3.5 w-3.5" />
         <span class="sr-only">Github</span>
       </a>
       <a
@@ -40,7 +40,7 @@ const today = new Date();
         target="_blank"
         class={buttonVariants({ variant: "ghost", size: "icon" })}
       >
-        <Rss className="h-3.5 w-3.5" />
+        <Rss class="h-3.5 w-3.5" />
         <span class="sr-only">RSS</span>
       </a>
       <a
@@ -48,7 +48,7 @@ const today = new Date();
         target="_blank"
         class={buttonVariants({ variant: "ghost", size: "icon" })}
       >
-        <Network className="h-3.5 w-3.5" />
+        <Network class="h-3.5 w-3.5" />
         <span class="sr-only">Sitemap</span>
       </a>
     </div>

@@ -1,8 +1,8 @@
+import { defineConfig } from "astro/config";
+import preact from "@astrojs/preact";
 import mdx from "@astrojs/mdx";
-import react from "@astrojs/react";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
-import { defineConfig } from "astro/config";
 import rehypePrettyCode from "rehype-pretty-code";
 import remarkReadingTime from "./src/plugins/remark-reading-time.mjs";
 
@@ -30,12 +30,12 @@ const rehypePrettyCodeOptions = {
 export default defineConfig({
   site: "https://abdllah.dev",
   integrations: [
+    preact(),
     mdx(),
     sitemap(),
     tailwind({
       applyBaseStyles: false,
     }),
-    react(),
   ],
   markdown: {
     extendDefaultPlugins: true,

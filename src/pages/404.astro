@@ -1,8 +1,8 @@
 ---
-import { buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/lib/button-utils";
 import BaseLayout from "@/layouts/base-layout.astro";
 import { cn } from "@/lib/utils";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft } from "lucide-preact";
 ---
 
 <BaseLayout title="404: Not found">
@@ -18,7 +18,7 @@ import { ArrowLeft } from "lucide-react";
         "inline-flex items-center justify-center space-x-2"
       )}
     >
-      <ArrowLeft className="h-4 w-4" />
+      <ArrowLeft class="h-4 w-4" />
       <span>Go back</span>
     </a>
   </div>
