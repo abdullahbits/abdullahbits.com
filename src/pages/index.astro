@@ -12,7 +12,7 @@ const posts = await getCollection("blog");
 const sortedPosts = posts
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .filter((post) => !post.data.planned && post.data.published)
-  .slice(0, 3);
+  .slice(0, 2);
 
 const pinnedPosts = posts.filter(
   (post) => post.data.pinned && post.data.published

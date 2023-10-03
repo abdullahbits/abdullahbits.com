@@ -20,8 +20,8 @@ const posts = (await getCollection("blog"))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
 ---
 
-<BaseLayout title={`Posts about #${t?.toUpperCase()}`}>
-  <h1 class="pb-4 text-3xl uppercase">
+<BaseLayout title={`Posts about #${t}`}>
+  <h1 class="pb-4 text-3xl">
     {`#${t}`}
   </h1>
   <Posts posts={posts} />

@@ -41,8 +41,8 @@ const { projects } = Astro.props;
             </p>
           </div>
           <ul class="flex flex-wrap gap-x-2 text-sm text-muted-foreground">
-            {project.data.tags.map((tag) => (
-              <li class="underline underline-offset-2">{`#${tag}`}</li>
+            {project.data.tags.map((tag: string) => (
+              <li class="underline underline-offset-2">{tag}</li>
             ))}
           </ul>
         </div>

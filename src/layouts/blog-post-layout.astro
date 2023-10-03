@@ -71,10 +71,10 @@ const posts = (await getCollection("blog"))
         </div>
         <div class="not-prose flex items-center space-x-1">
           {
-            tags.map((tag) => (
+            tags.map((tag: string) => (
               <a
                 href={`/tags/${tag.slice(1)}`}
-                class="rounded-md border bg-card p-1 px-2 text-foreground  hover:bg-muted"
+                class="rounded-md border bg-card p-1 px-2 lowercase text-foreground hover:bg-muted"
               >
                 {tag}
               </a>

@@ -16,7 +16,7 @@ const blog = defineCollection({
       tags: z
         .string()
         .array()
-        .transform((tags) => tags.map((tag) => `#${tag}`)),
+        .transform((tags) => tags.map((tag) => `#${tag.toLowerCase()}`)),
       published: z.boolean().default(false),
       pinned: z.boolean().default(false),
       planned: z.boolean().default(false),
@@ -33,7 +33,6 @@ const blog = defineCollection({
       cover: image().refine((img) => img.width >= 1080, {
         message: "Cover image must be at least 1080 pixels wide!",
       }),
-      coverAlt: z.string(),
     }),
 });
 
@@ -53,7 +52,10 @@ const project = defineCollection({
     title: z.string(),
     link: z.string().optional(),
     description: z.string(),
-    tags: z.string().array(),
+    tags: z
+      .string()
+      .array()
+      .transform((tags) => tags.map((tag) => `#${tag.toLowerCase()}`)),
     index: z.number(),
   }),
 });
