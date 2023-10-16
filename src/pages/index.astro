@@ -56,22 +56,32 @@ const sortedProjects = projects.sort((a, b) => a.data.index - b.data.index);
       )
     }
 
-    {
-      sortedPosts.length > 0 && (
-        <div class="space-y-4">
-          <div class="flex items-end justify-between">
-            <h2 class="text-2xl font-bold">Latest Posts</h2>
+    <div class="space-y-4">
+      <div class="flex items-end justify-between">
+        <h2 class="text-2xl font-bold">Latest Posts</h2>
+        {
+          sortedPosts.length > 0 && (
             <a
               href="/blog"
               class="text-sm font-medium underline-offset-2 hover:underline"
             >
               View all
             </a>
-          </div>
+          )
+        }
+      </div>
+      {
+        sortedPosts.length > 0 ? (
           <Posts posts={sortedPosts} />
-        </div>
-      )
-    }
+        ) : (
+          <p class="font-semibold">
+            Sorry, I lied 😅 there is no posts yet on this blog but I'm
+            currently working 👷‍♂️ on a tutorial series called "Lambda Calculus
+            For All". Stay Tuned 😄!
+          </p>
+        )
+      }
+    </div>
 
     {
       pinnedSeries.length > 0 && (

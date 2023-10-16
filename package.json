@@ -18,7 +18,7 @@
     }
   },
   "lint-staged": {
-    "*.{js,cjs,mjs,ts,jsx,tsx,json,astro}": [
+    "*.{js,cjs,mjs,ts,jsx,tsx,json,astro,md,mdx}": [
       "prettier --write --plugin=prettier-plugin-astro --plugin=prettier-plugin-tailwindcss"
     ]
   },

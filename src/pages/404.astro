@@ -11,13 +11,7 @@ import { ArrowLeft } from "lucide-preact";
       <span class="text-9xl font-black">404</span>
       <span class="text-3xl font-semibold">Oops, page not found</span>
     </div>
-    <a
-      href="/"
-      class={cn(
-        buttonVariants({ variant: "outline" }),
-        "inline-flex items-center justify-center space-x-2"
-      )}
-    >
+    <a href="/" class={cn(buttonVariants({ size: "sm" }), "space-x-1")}>
       <ArrowLeft class="h-4 w-4" />
       <span>Go back</span>
     </a>
