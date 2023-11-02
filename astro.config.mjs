@@ -30,7 +30,7 @@ const rehypePrettyCodeOptions = {
 export default defineConfig({
   site: "https://abdllah.dev",
   integrations: [
-    preact(),
+    preact({ compat: true }),
     mdx(),
     sitemap(),
     tailwind({

@@ -28,6 +28,7 @@
     "@astrojs/rss": "^3.0.0",
     "@astrojs/sitemap": "^3.0.0",
     "@astrojs/tailwind": "^5.0.0",
+    "@radix-ui/react-tabs": "^1.0.4",
     "@tailwindcss/typography": "^0.5.10",
     "astro": "^3.1.1",
     "class-variance-authority": "^0.7.0",
@@ -35,12 +36,11 @@
     "lucide-preact": "^0.279.0",
     "mdast-util-to-string": "^4.0.0",
     "preact": "^10.17.1",
+    "react": "npm:@preact/compat@latest",
+    "react-dom": "npm:@preact/compat@latest",
     "reading-time": "^1.5.0",
-    "rehype-autolink-headings": "^6.1.1",
     "rehype-pretty-code": "^0.9.11",
-    "rehype-slug": "^5.1.0",
-    "remark-toc": "^8.0.1",
-    "shiki": "^0.14.4",
+    "shiki": "^0.14.5",
     "tailwind-merge": "^1.14.0",
     "tailwindcss": "^3.3.3",
     "tailwindcss-animate": "^1.0.7"
@@ -58,5 +58,9 @@
     "prettier-plugin-tailwindcss": "^0.4.1",
     "tailwind-scrollbar": "^3.0.5",
     "typescript": "^5.2.2"
+  },
+  "overrides": {
+    "react": "npm:@preact/compat@latest",
+    "react-dom": "npm:@preact/compat@latest"
   }
 }

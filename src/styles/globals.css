@@ -34,30 +34,3 @@
     @apply bg-background text-foreground;
   }
 }
-
-div[data-rehype-pretty-code-fragment] {
-  @apply space-y-0;
-}
-
-div[data-rehype-pretty-code-fragment] pre {
-  @apply overflow-x-auto rounded-lg rounded-t-none border bg-background p-0 py-2 scroll-smooth scrollbar-thin scrollbar-thumb-muted-foreground scrollbar-track-muted;
-}
-
-div[data-rehype-pretty-code-fragment] code {
-  counter-reset: line;
-  @apply flex flex-col bg-background p-0;
-}
-
-div[data-rehype-pretty-code-fragment] .line::before {
-  counter-increment: line;
-  content: counter(line);
-  @apply pr-4;
-}
-
-div[data-rehype-pretty-code-fragment] .line {
-  @apply border-l-4 border-transparent px-3;
-}
-
-div[data-rehype-pretty-code-fragment] .highlighted {
-  @apply border-primary bg-primary/10;
-}

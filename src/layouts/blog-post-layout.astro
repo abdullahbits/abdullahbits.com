@@ -51,7 +51,7 @@ const posts = (await getCollection("blog"))
     </div>
 
     <div
-      class="prose max-w-3xl px-4 prose-headings:scroll-my-20 prose-a:no-underline prose-a:decoration-blue-600 prose-a:underline-offset-2 prose-code:rounded-sm prose-code:bg-muted prose-code:px-1 prose-code:py-0.5 prose-code:before:hidden prose-code:after:hidden prose-img:rounded-lg prose-img:border hover:prose-a:underline"
+      class="prose max-w-3xl px-4 prose-headings:scroll-my-20 prose-a:no-underline prose-a:decoration-blue-600 prose-a:underline-offset-2 prose-img:rounded-lg prose-img:border hover:prose-a:underline"
     >
       <a
         href="/"
@@ -123,64 +123,4 @@ const posts = (await getCollection("blog"))
       </div>
     </div>
   </div>
-
-  <script>
-    const codeBlocks = Array.from(
-      document.querySelectorAll("div[data-rehype-pretty-code-fragment]")
-    );
-
-    for (let codeBlock of codeBlocks) {
-      const codeBlockPre = codeBlock.getElementsByTagName("pre")[0];
-
-      // Copy button
-      const copyButton = document.createElement("button");
-      copyButton.className =
-        "inline-flex items-center justify-center p-1 px-2 rounded-md text-foreground text-xs border hover:bg-muted";
-      copyButton.innerHTML = "Copy";
-
-      // Header title
-      const titleSpan = document.createElement("span");
-      titleSpan.className = "text-sm font-semibold text-white";
-
-      // Header div
-      const headerDiv = document.createElement("div");
-      headerDiv.className =
-        "flex w-full bg-background border rounded-t-md mt-10 items-center justify-between py-2 px-4";
-
-      // Current title
-      const titleDiv = codeBlock.querySelector(
-        "div[data-rehype-pretty-code-title]"
-      );
-
-      // Set title to the language name if no current title is set
-      if (titleDiv) {
-        const title = titleDiv.innerHTML;
-        titleSpan.innerHTML = title;
-        codeBlock.removeChild(titleDiv);
-      } else {
-        titleSpan.innerHTML = codeBlockPre.getAttribute(
-          "data-language"
-        ) as string;
-      }
-
-      headerDiv.appendChild(titleSpan);
-      headerDiv.appendChild(copyButton);
-      codeBlock.prepend(headerDiv);
-
-      copyButton.addEventListener("click", async () => {
-        await copyCode(codeBlock, copyButton);
-      });
-    }
-
-    async function copyCode(block: Element, button: HTMLButtonElement) {
-      const code = block.querySelector("code") as HTMLElement;
-      const text = code.innerText as string;
-      await navigator.clipboard.writeText(text);
-      button.innerText = "Copied!";
-
-      setTimeout(() => {
-        button.innerText = "Copy";
-      }, 750);
-    }
-  </script>
 </BaseLayout>
