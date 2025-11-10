@@ -31,9 +31,7 @@ const blog = defineCollection({
         .string()
         .optional()
         .transform((str) => (str ? new Date(str) : undefined)),
-      cover: image().refine((img) => img.width >= 1080, {
-        message: "Cover image must be at least 1080 pixels wide!",
-      }),
+      cover: image(),
     }),
 });
 

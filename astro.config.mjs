@@ -38,7 +38,6 @@ export default defineConfig({
     }),
   ],
   markdown: {
-    extendDefaultPlugins: true,
     syntaxHighlight: false,
     rehypePlugins: [[rehypePrettyCode, rehypePrettyCodeOptions]],
     remarkPlugins: [remarkReadingTime],

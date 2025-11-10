@@ -1,14 +1,12 @@
 import { useState } from "preact/hooks";
-import { getHighlighter, renderToHtml, setCDN, type Lang } from "shiki";
+import { createHighlighter, type BundledLanguage } from "shiki";
 import { Copy, ClipboardCheck } from "lucide-preact";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/lib/button-utils";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
-setCDN("https://cdn.jsdelivr.net/npm/shiki@0.14.5/");
-
-const highlighter = await getHighlighter({
-  theme: "dracula",
+const highlighter = await createHighlighter({
+  themes: ["dracula"],
   langs: [
     "ocaml",
     "javascript",
@@ -23,7 +21,7 @@ const highlighter = await getHighlighter({
 });
 
 export interface Snippet {
-  lang: Lang;
+  lang: BundledLanguage;
   title?: string;
   code: string;
   linesToHighlight?: (number | [number, number])[];
@@ -65,41 +63,34 @@ export function CodeWidget({ snippets }: CodeWidgetProps) {
           }, new Set<number>())
         );
 
-      const tokens = highlighter.codeToThemedTokens(code, lang, "dracula");
+      const html = highlighter.codeToHtml(code, {
+        lang,
+        theme: "dracula",
+        transformers: [
+          {
+            name: "custom-line-numbers",
+            pre(node) {
+              this.addClassToHast(node, "flex w-full text-sm !bg-background");
+            },
+            code(node) {
+              this.addClassToHast(node, "flex flex-col w-full");
+            },
+            line(node, line) {
+              const isHighlighted = flatLinesToHighlight?.includes(line);
 
-      const html = renderToHtml(tokens, {
-        elements: {
-          pre({ className, children }) {
-            return `
-              <pre class="flex w-full bg-background text-sm">
-                ${children}
-              </pre>
-            `;
+              this.addClassToHast(
+                node,
+                "inline-flex w-full py-0.5 border-transparent border-l-4 before:pl-3 before:pr-4 before:w-10 before:text-muted-foreground before:content-[attr(before)]"
+              );
+
+              if (isHighlighted) {
+                this.addClassToHast(node, "bg-primary/20 border-primary");
+              }
+
+              node.properties.before = line.toString();
+            },
           },
-          code({ className, children }) {
-            return `
-              <code class="flex flex-col w-full">
-                ${children}
-              </code>
-            `;
-          },
-          line({ className, children, index }) {
-            return `
-              <line
-                before=${index + 1}
-                class="${cn(
-                  "inline-flex w-full py-0.5 border-transparent border-l-4 before:pl-3 before:pr-4 before:w-10 before:text-muted-foreground before:content-[attr(before)]",
-                  className
-                )}">
-                ${children}
-              </line>
-            `;
-          },
-        },
-        lineOptions: flatLinesToHighlight?.map((l) => ({
-          line: l,
-          classes: ["bg-primary/20 border-primary"],
-        })),
+        ],
       });
 
       acc.push(html);
